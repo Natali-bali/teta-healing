@@ -6,31 +6,29 @@ body {
     font-style: normal;
     font-weight: normal;
 }
-
+.container {
+    width: 1260px;
+    margin: 0 auto 0 auto;
+}
 
 /* First block*/
 .block-1 {
     background-color: #EEF9FF;
-    width: 1920px;
-    height: 800px;
+    height: 798px;
 }
-.block-1_wrap {
-    width: 1260px;
-    height: 800px;
-    padding-bottom: 80px;
-    margin-left: auto;
-    margin-right: auto;
-}
+/* Header with logo and navbar */
 header {
-    height: 65px;
+    height: 45px;
     margin: auto;
-    padding-top: 30px;
+    padding-top: 26px;
     display: flex;
     justify-content: space-between;
     /* flex-wrap: wrap; */
 }
-
-.logo_name {
+.logo {
+    margin-top: 5px;
+}
+.logo__name {
     display: inline-block;
     width: 165px;
     font-style: normal;
@@ -40,8 +38,7 @@ header {
     color: #363636;
 }
 
-.logo_comment {
-    padding-top: 2px;
+.logo__comment {
     display: inline-block;
     width: 129px;
     font-size: 12px;
@@ -50,12 +47,11 @@ header {
     position: relative;
 }
 
-.logo_name + .logo_comment {
+.logo__name + .logo__comment {
     padding-left: 50px;
 }
-.logo_comment::before {
+.logo__comment::before {
     content: '';
-    /* display: block; */
     position: absolute;
     top:0;
     left: 23px;
@@ -69,16 +65,12 @@ header {
 .nav {
     display: inline-block;
     text-align: justify;
-    /* float: right; */
-    padding-top: 7px;
+    padding-top: 6px;
 }
-/* .logo_comment + .nav {
-    padding-left: 88px;
-} */
+
 .nav a {
     display: inline-block;
     height: 18px;
-    /* width: 728px; */
     font-weight: 700;
     font-size: 13px;
     line-height: 18px;
@@ -93,14 +85,16 @@ header {
 .nav .active {
     border-bottom: 1px solid #363636;
 }
+
 /* Первый блок информации и список */
-.block-1_content {
-    /* clear: both; */
+.block-1__content {
     width:100%;
-    margin: 50px auto;
+    height:654px;
+    margin: 73px auto 0 auto;
     position: relative;
+    display: inline-block;
 }
-.block-1_content h1 {
+.block-1__content h1 {
     margin: 0;
     font-size: 82px;
     line-height: 1.1;
@@ -108,30 +102,30 @@ header {
     font-weight: 500;
     width: 634px;
 }
-.block-1_content h1 span {
+.block-1__content h1 span {
     color:  #69B0AC;
     font-family: 'Uni Neue Book' sans-serif;
 }
-.short-text {
+.block-1__content .short-text {
     width: 440px;
     height: 75px;
-    padding-top: 27px;
+    padding-top: 26px;
     line-height: 1.75;
     font-weight: 500;
     font-size: 16px;
     color: #7C7C7C;
 }
-.block-1_content ul li {
+.block-1__content ul li {
     list-style: none;
     padding-bottom: 18px;
     color: #545454;
 }
-.block-1_content ul {
+.block-1__content ul {
     margin: 0;
-    padding: 20px 0;
+    padding: 22px 0 0 0;
 
 }
-.block-1_content ul li::before{
+.block-1__content ul li::before{
     content: "";
     width:20px;
     height: 23px;
@@ -143,22 +137,24 @@ header {
 }
 /* Main photo */
 .photo {
-    display: inline-block;
     position: absolute;
-    top:-36px;
-    right:-86px;
-    width: 770px;
+    width: 598px;
+    height:691px;
+    background-image: url('../img/lady.png');
+    bottom: 0;
+    right: -86px;
 }
+
 /* Scroll down */
 .scroll-down {
     display: block;
-    background-image: url('../icons/scroll.svg');
+    background-image: url('../icons/scroll.png');
     background-repeat: no-repeat;
-    width: 421px;
-    height: 250px;
+    width: 98px;
+    height: 39px;
     position: absolute;
-    bottom: -141px;
-    left:426px;
+    bottom: -39px;
+    left: calc(50% - 48px);
 }
 .scroll-down button {
     background-image: url('../icons/errowdown.png');
@@ -166,8 +162,8 @@ header {
     width: 56px;
     height: 58px;
     position: absolute;
-    bottom: 59px;
-    left:178px;
+    bottom: 0;
+    left:calc(50% - 28px);
     border: none;
     cursor: pointer;
     background-color: transparent;
@@ -192,23 +188,19 @@ outline: none !important;
 
 /* Second block and footer */
 .block-2 {
-    width: 1920px;
     height: 1057px;
     margin-top: 43px;
     background: linear-gradient(180deg, #FFFFFF 49.96%, #EFF9FF 100%);
 }
 .block-2_wrap {
     height: 969px;
-    width: 1260px;
-    /* padding-bottom: 123px; */
-    margin-left: auto;
-    margin-right: auto;
     padding-top: 88px;
 }
 /* block 2 heading */
 .heading {
     text-align: center;
     margin-bottom: 61px;
+    margin-top: 131px;
 }
 .heading h2 {
     font-family: 'Uni Neue Book';
@@ -230,8 +222,9 @@ outline: none !important;
 /* video and description */
 .video_wrap {
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    /* justify-content: flex-start;
+    align-items: flex-start; */
+    margin-left: 1px;
 }
 .video {
     position: relative;
@@ -239,16 +232,27 @@ outline: none !important;
     align-items: center; */
     width: 605px;
     height: 400px;
-    border-radius: 40px;
+    border-radius: 50px;
     overflow: hidden;
     border: 10px solid #fff;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    box-shadow: 0px 80px 100px rgba(211, 226, 235, 0.8);
 }
 .video_image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     order: 0;
+    /* transform: translate(-1px, -3px); */
+}
+.video::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(25.3% 57.25% at 50% 50%, rgba(80, 152, 190, 0.5) 0%, rgba(52, 113, 146, 0.76) 100%);
 }
 
 .play_button {
@@ -315,6 +319,7 @@ outline: none !important;
 .story p {
     padding-top: 0;
     margin-top: 0;
+    margin-bottom: 18px;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.79;
@@ -331,7 +336,7 @@ outline: none !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 71px;
+    margin-top: 73px;
 
 }
 .number_digit {
@@ -350,23 +355,23 @@ outline: none !important;
     font-size: 24px;
     line-height: 1.17;
     color: #363636;
-    margin-right: 20px;
+    margin-right: 17px;
 }
 .number_normal {
     display: inline-block;
     vertical-align:top;
-    padding-top: 6px;
+    padding-top: 8px;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.37;
     color: #545454;
 }
 .boulets_1, .boulets_2 {
-    height: 85px;
+    height: 72px;
 }
 .boulets_1 {
-    padding-left: 20px;
+    padding-left: 26px;
 }
 .boulets_2 {
-    padding-right: 20px;
+    padding-right: 22px;
 }
