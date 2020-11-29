@@ -7,7 +7,8 @@ body {
     font-weight: normal;
 }
 .container {
-    width: 1260px;
+    max-width: 1260px;
+    padding: 0 15px 0 15px;
     margin: 0 auto 0 auto;
 }
 
@@ -18,24 +19,37 @@ body {
 }
 /* Header with logo and navbar */
 header {
-    height: 45px;
+    height: 100vh;
     margin: auto;
+    position: relative;
+    overflow: hidden;
+    /* flex-wrap: wrap; */
+}
+.header_wrap {
+    height: 45px;
+    width: 100%;
     padding-top: 26px;
     display: flex;
     justify-content: space-between;
-    /* flex-wrap: wrap; */
 }
 .logo {
     margin-top: 5px;
 }
 .logo__name {
     display: inline-block;
-    width: 165px;
     font-style: normal;
     font-weight: 500;
     font-size: 32px;
     line-height: 1;
     color: #363636;
+    padding-right: 50px;
+}
+@media (max-width: 768px){
+    .logo__name {
+        font-size: 20px;
+        padding-right: 12px;
+    }
+
 }
 
 .logo__comment {
@@ -46,26 +60,38 @@ header {
     color: #4B5455;
     position: relative;
 }
+@media (max-width: 768px){
+    .logo__comment {
+        width: 106px;
+        font-size: 10px;
+    }
 
-.logo__name + .logo__comment {
-    padding-left: 50px;
 }
+
 .logo__comment::before {
     content: '';
     position: absolute;
     top:0;
-    left: 23px;
+    left: -27px;
     height:30px;
-    width: 2px;
-    background-image: url('.././icons/Vector1.png');
-    background-repeat: no-repeat;
+    width: 1px;
+    background-color: #DDDDDD;
+}
+@media (max-width: 768px){
+    .logo__comment::before {
+        left: -9px;
+        height:20px;
+        top:5px;
+    }
+
 }
 
 /* Навигация */
 .nav {
-    display: inline-block;
-    text-align: justify;
-    padding-top: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 6px;
 }
 
 .nav a {
@@ -76,7 +102,7 @@ header {
     line-height: 18px;
     text-decoration: none;
     color: #363636;
-    margin-left: 44px;
+    margin-left: 48px;
     cursor: pointer;
 }
 .nav a:hover {
@@ -85,7 +111,31 @@ header {
 .nav .active {
     border-bottom: 1px solid #363636;
 }
-
+@media(max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 290px;;
+        height: 100vh;
+        position: absolute;
+        top:0;
+        right: -310px;
+        padding: 80px 0 0 20px;
+        background-color: rgba(128, 128, 128, 0.8);
+        transition: transform 0.2s linear;
+    }
+    .nav a {
+        margin: 0 0 20px 30px;
+        text-decoration: none;
+        color: #fff;
+    }
+  }
+  .mobile-menu__active {
+    transform: translate(-100%, 0);
+    -ms-transform: translate(-100%, 0);
+    transition: transform 0.2s linear;
+}
 /* Первый блок информации и список */
 .block-1__content {
     width:100%;
@@ -339,6 +389,7 @@ outline: none !important;
     margin-top: 73px;
 
 }
+
 .number_digit {
     font-weight: 500;
     font-size: 100px;
@@ -375,3 +426,65 @@ outline: none !important;
 .boulets_2 {
     padding-right: 22px;
 }
+.hidden {
+    display: none!important;
+}
+
+/* mobile navigation button */
+#menu-icon {
+    height: 30px;
+    width: 30px;
+    position: relative;
+    cursor: pointer;
+    z-index: 9;
+  }
+  @media(min-width: 768px) {
+    #menu-icon,  .mobile-menu{
+      display: none;
+    }
+  }
+
+  .menu-icon__lines {
+    width: 30px;
+    height: 4px;
+    background-color:#363636;
+    ;
+    position: absolute;
+    top: 12.5px;
+    transition: all 0.2s linear;
+  }
+  .menu-icon__lines::before {
+    content: '';
+    width: 30px;
+    height: 4px;
+    background-color: #363636;;
+    position: absolute;
+    top: -12.5px;
+    transition: transform 0.2s linear, top 0.2s linear 0.2s;
+  }
+  .menu-icon__lines::after {
+    content: '';
+    width: 30px;
+    height: 4px;
+    background-color: #363636;;
+    position: absolute;
+    top: 12.5px;
+    transition: transform 0.2s linear, top 0.2s linear 0.2s;
+  }
+
+  .menu-icon__cross.menu-icon__lines {
+    background-color: transparent;
+    transition: all 0.2s linear;
+  }
+  .menu-icon__cross.menu-icon__lines::after {
+    transform: rotate(45deg);
+    top: 0;
+    transition: top 0.2s linear, transform 0.2s linear 0.2s;
+
+
+  }
+  .menu-icon__cross.menu-icon__lines::before {
+    transform: rotate(-45deg);
+    top: 0;
+    transition: top 0.2s linear, transform 0.2s linear 0.2s;
+  }
